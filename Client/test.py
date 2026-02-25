@@ -1,11 +1,14 @@
 import requests
 
-url = "https://httpbin.org/get"
+url = "http://8.134.80.214:8080/upload"
 
-# 发送GET请求
-response = requests.get(url)
+data = {
+    "device_id": "chamber1",
+    "temperature": 25.5,
+    "humidity": 60
+}
 
-# 打印返回内容
-print("状态码:", response.status_code)
-print("响应内容:")
-print(response.text)
+r = requests.post(url, json=data)
+
+print(r.status_code)
+print(r.text)
